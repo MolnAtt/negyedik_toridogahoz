@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
     <p>Mondd meg, hogy mikor történt ez az esemény:</p>
-    <form method="POST">
+    <form method="POST" action="valasz/">
         {% csrf_token %}
         <p><strong>{{ esemeny_neve }}</strong></p>
         <label for="valasz">ekkor történt:</label>
-        <input id="valasz" type="number">
+        <input id="valasz" type="number" name="valasz">
         <input type="submit" value="Küld">
+        <input type="hidden" name="kerdes" value="{{ esemeny_neve }}">
     </form>
+
 </body>
 </html>

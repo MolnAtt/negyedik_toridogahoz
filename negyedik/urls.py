@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app_szia.views import szia_view
+from app_szia.views import szia_view, valasz_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', szia_view),
+    path('', szia_view, name='kezdooldal'),
+    path('valasz/', valasz_view),
 ]
